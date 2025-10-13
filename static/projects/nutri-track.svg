@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#59ffc6"/>
+      <stop offset="50%" stop-color="#7c5cff"/>
+      <stop offset="100%" stop-color="#141228"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.8)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0b0f"/>
+  <rect width="1600" height="1000" fill="url(#gradient)" opacity="0.7"/>
+  <rect width="1600" height="1000" fill="url(#glow)" opacity="0.55"/>
+  <g fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2">
+    <path d="M0 150 Q400 260 800 150 T1600 150"/>
+    <path d="M0 450 Q300 360 800 450 T1600 450"/>
+    <path d="M0 750 Q450 860 800 750 T1600 750"/>
+  </g>
+  <text x="120" y="320" font-family="Inter, sans-serif" font-size="160" fill="white" font-weight="600">Nutri Track</text>
+  <text x="120" y="440" font-family="Inter, sans-serif" font-size="48" fill="rgba(255,255,255,0.75)">Suite integral de nutrición con dashboards en tiempo real.</text>
+  <circle cx="1240" cy="600" r="220" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1180" cy="560" r="160" fill="rgba(88,255,197,0.25)"/>
+  <path d="M1060 540 Q1180 460 1320 580" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1120 640 L1220 520 L1360 680" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

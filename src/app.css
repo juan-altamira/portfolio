@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		color-scheme: dark;
+	}
+
+	body {
+		@apply bg-canvas text-neutral-100 antialiased;
+		font-family: theme('fontFamily.sans');
+	}
+
+	a {
+		@apply text-primary no-underline transition-colors duration-300 hover:text-primary-soft;
+	}
+}
+
+.reveal {
+	opacity: 0;
+	--slide-x: 0px;
+	--slide-y: 150px;
+	--reveal-delay: 0s;
+	--reveal-duration: 1.25s;
+	--reveal-rotate: 1.5deg;
+	--reveal-scale: 0.94;
+	transform: translate3d(var(--slide-x), var(--slide-y), 0);
+	will-change: opacity, transform;
+}
+
+.reveal[data-reveal-direction='left'] {
+	--slide-x: -180px;
+	--slide-y: 0px;
+}
+
+.reveal[data-reveal-direction='right'] {
+	--slide-x: 180px;
+	--slide-y: 0px;
+}
+
+.reveal[data-reveal-direction='down'] {
+	--slide-y: -150px;
+}
+
+.reveal.is-revealed {
+	animation: slide-in var(--reveal-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	animation-delay: var(--reveal-delay);
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translate3d(var(--slide-x), var(--slide-y), 0) rotate(var(--reveal-rotate)) scale(var(--reveal-scale));
+	}
+
+	70% {
+		opacity: 1;
+		transform: translate3d(calc(var(--slide-x) * -0.12), calc(var(--slide-y) * -0.12), 0)
+			rotate(calc(var(--reveal-rotate) * -0.35)) scale(calc(1 + (1 - var(--reveal-scale)) * 0.45));
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}

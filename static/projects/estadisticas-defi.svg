@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#111b34"/>
+      <stop offset="100%" stop-color="#5ce1e6"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="rgba(92,225,230,0.3)"/>
+      <stop offset="100%" stop-color="rgba(124,92,255,0.8)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0b0f"/>
+  <rect width="1600" height="1000" fill="url(#gradient)" opacity="0.9"/>
+  <g fill="url(#bar)">
+    <rect x="400" y="420" width="120" height="320" rx="16"/>
+    <rect x="560" y="360" width="120" height="380" rx="16"/>
+    <rect x="720" y="300" width="120" height="440" rx="16"/>
+    <rect x="880" y="240" width="120" height="500" rx="16"/>
+    <rect x="1040" y="360" width="120" height="380" rx="16"/>
+  </g>
+  <polyline points="440,560 620,420 760,520 920,380 1100,460" fill="none" stroke="#58ffc5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="440" cy="560" r="12" fill="#58ffc5"/>
+  <circle cx="620" cy="420" r="12" fill="#58ffc5"/>
+  <circle cx="760" cy="520" r="12" fill="#58ffc5"/>
+  <circle cx="920" cy="380" r="12" fill="#58ffc5"/>
+  <circle cx="1100" cy="460" r="12" fill="#58ffc5"/>
+  <text x="140" y="260" font-family="Inter, sans-serif" font-size="140" fill="white" font-weight="700">Estadísticas DeFi</text>
+  <text x="140" y="340" font-family="Inter, sans-serif" font-size="46" fill="rgba(255,255,255,0.82)">Panel operativo con métricas en cadena y alertas.</text>
+</svg>

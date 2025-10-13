@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffaf7b"/>
+      <stop offset="100%" stop-color="#ff7f50"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="85%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.8)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0b0f"/>
+  <rect width="1600" height="1000" fill="url(#gradient)" opacity="0.75"/>
+  <rect width="1600" height="1000" fill="url(#spot)" opacity="0.5"/>
+  <g stroke="rgba(0,0,0,0.25)" stroke-width="10">
+    <path d="M360 740q60-200 320-200t520-200" fill="none" stroke-linecap="round"/>
+    <path d="M360 740h880" fill="none" stroke-linecap="round"/>
+    <path d="M620 520h160v220h-160z" fill="rgba(255,255,255,0.1)"/>
+    <path d="M820 480h160v260h-160z" fill="rgba(255,255,255,0.1)"/>
+  </g>
+  <text x="140" y="280" font-family="Inter, sans-serif" font-size="150" fill="white" font-weight="700">Restaurante Cabrera</text>
+  <text x="140" y="360" font-family="Inter, sans-serif" font-size="50" fill="rgba(255,255,255,0.8)">Experiencia gastronómica con reservas inteligentes.</text>
+  <circle cx="1340" cy="780" r="120" fill="rgba(0,0,0,0.25)"/>
+  <circle cx="1340" cy="780" r="90" fill="rgba(255,255,255,0.15)"/>
+  <path d="M1300 740l80 80" stroke="white" stroke-width="12" stroke-linecap="round"/>
+  <path d="M1380 740l-80 80" stroke="white" stroke-width="12" stroke-linecap="round"/>
+</svg>
