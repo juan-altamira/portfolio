@@ -140,7 +140,7 @@
 
 	<div class="relative flex flex-col gap-6" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'right' }}>
 		<div class="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-primary/25 via-primary/15 to-transparent p-2 shadow-[0_0_90px_rgba(124,92,255,0.4)]">
-			<ScrollGalaxy intensity={1.05} depth={6.2} />
+			<ScrollGalaxy intensity={0.75} depth={6.5} mode="structure" />
 			<div class="relative z-10 flex h-full flex-col justify-between rounded-[1.35rem] bg-black/30 p-6 backdrop-blur-xl">
 				<div>
 					<p class="text-xs uppercase tracking-[0.3em] text-primary-soft/80">Se mueve con tu scroll</p>
@@ -184,7 +184,7 @@
 </section>
 
 <section id="proyectos" class="relative space-y-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<ScrollGalaxy intensity={0.45} depth={7.4} />
+	<ScrollGalaxy intensity={0.35} depth={7.4} mode="structure" />
 	<div class="relative z-10 flex flex-col gap-4 px-6 lg:px-10" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Casos recientes</h2>
 		<p class="max-w-3xl text-neutral-300">
@@ -203,7 +203,7 @@
 </section>
 
 <section class="relative grid gap-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16 lg:grid-cols-3">
-	<ScrollGalaxy intensity={0.3} depth={7.2} />
+	<ScrollGalaxy intensity={0.24} depth={7.2} mode="structure" />
 	{#each focusAreas as area, index}
 		<article
 			class="relative z-10 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow"
@@ -225,7 +225,7 @@
 </section>
 
 <section class="relative space-y-10 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<ScrollGalaxy intensity={0.34} depth={7.5} />
+	<ScrollGalaxy intensity={0.26} depth={7.5} mode="structure" />
 	<div class="relative z-10 flex flex-col gap-3 px-6 lg:px-10" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Proceso sin fricción</h2>
 		<p class="max-w-3xl text-neutral-300">
@@ -250,7 +250,7 @@
 <section class="relative overflow-hidden rounded-[2.5rem] border border-primary/40 bg-gradient-to-br from-primary/25 via-primary/15 to-transparent p-10">
 	<div class="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/30 blur-3xl animate-glow-pulse"></div>
 	<div class="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-glow-pulse" style="animation-delay: 0.8s"></div>
-	<ScrollGalaxy intensity={0.28} depth={6.8} />
+	<ScrollGalaxy intensity={0.2} depth={6.8} mode="structure" />
 
 	<div class="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 		<div class="max-w-2xl space-y-4" style="--reveal-delay: 0.24s" use:reveal={{ direction: 'up' }}>
