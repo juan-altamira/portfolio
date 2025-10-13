@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 
-	let container: HTMLDivElement;
-	let frameId: number;
+	let container: HTMLDivElement | null = null;
+	let frameId = 0;
 
 	onMount(() => {
-		const { clientWidth, clientHeight } = container;
+		if (typeof window === 'undefined' || !container) return;
+
+		const el = container;
+		const { clientWidth, clientHeight } = el;
 
 		const scene = new THREE.Scene();
 		scene.background = null;
@@ -20,7 +23,7 @@
 		});
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 		renderer.setSize(clientWidth, clientHeight);
-		container.appendChild(renderer.domElement);
+		el.appendChild(renderer.domElement);
 
 		const coreGeometry = new THREE.IcosahedronGeometry(1.1, 2);
 		const coreMaterial = new THREE.MeshStandardMaterial({
@@ -110,7 +113,7 @@
 		};
 
 		const handleResize = () => {
-			const { clientWidth: w, clientHeight: h } = container;
+			const { clientWidth: w, clientHeight: h } = el;
 			camera.aspect = w / h;
 			camera.updateProjectionMatrix();
 			renderer.setSize(w, h);
@@ -130,12 +133,8 @@
 			wireMaterial.dispose();
 			particlesGeometry.dispose();
 			particlesMaterial.dispose();
-			container.removeChild(renderer.domElement);
+			el.removeChild(renderer.domElement);
 		};
-	});
-
-	onDestroy(() => {
-		cancelAnimationFrame(frameId);
 	});
 </script>
 
