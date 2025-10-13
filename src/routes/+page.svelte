@@ -2,6 +2,7 @@
 	import { projects } from '$lib/data/projects';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import SlideInPicture from '$lib/components/SlideInPicture.svelte';
+	import HeroScene from '$lib/components/HeroScene.svelte';
 	import { reveal } from '$lib/actions/reveal';
 
 	const flagship = projects.find((project) => project.highlight)!;
@@ -92,7 +93,7 @@
 </svelte:head>
 
 <section class="grid gap-10 pb-16 pt-8 lg:grid-cols-[minmax(0,1.2fr),minmax(0,0.8fr)] lg:items-center lg:gap-20">
-	<div class="flex flex-col gap-8" style="--reveal-delay: 0.05s; --slide-y: 140px; --reveal-duration: 1.35s; --reveal-rotate: 2.4deg; --reveal-scale: 0.9" use:reveal={{ direction: 'up' }}>
+	<div class="flex flex-col gap-8" style="--reveal-delay: 0.05s" use:reveal={{ direction: 'up' }}>
 		<div class="space-y-5">
 			<span class="inline-flex max-w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
 				Trabajo uno a uno con marcas que quieren brillar online
@@ -105,7 +106,7 @@
 			</p>
 		</div>
 
-			<div class="flex flex-wrap gap-4" style="--reveal-delay: 0.22s; --slide-x: 180px; --reveal-duration: 1.15s; --reveal-rotate: -1.6deg; --reveal-scale: 0.93" use:reveal={{ direction: 'right' }}>
+			<div class="flex flex-wrap gap-4" style="--reveal-delay: 0.18s" use:reveal={{ direction: 'right' }}>
 			<a
 				href="mailto:juanpabloaltamira@protonmail.com"
 				class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/50"
@@ -126,7 +127,7 @@
 			{#each stats as stat, index}
 				<div
 					class="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl"
-					style={`--reveal-delay: ${0.24 + index * 0.1}s; --reveal-duration: 1.08s; --slide-y: 100px; --reveal-rotate: 1.4deg; --reveal-scale: 0.92`}
+					style={`--reveal-delay: ${0.26 + index * 0.08}s`}
 					use:reveal={{ direction: 'up' }}
 				>
 					<p class="text-xs uppercase tracking-wide text-neutral-400">{stat.label}</p>
@@ -137,8 +138,23 @@
 		</div>
 	</div>
 
-	<div class="relative" style="--reveal-delay: 0.18s; --slide-x: 200px; --reveal-duration: 1.25s; --reveal-rotate: -1.8deg; --reveal-scale: 0.9" use:reveal={{ direction: 'right' }}>
-		<div class="absolute -top-8 -left-10 hidden h-32 w-32 rounded-full bg-primary/30 blur-3xl lg:block animate-glow-pulse"></div>
+	<div class="relative flex flex-col gap-6" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'right' }}>
+		<div class="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent p-2 shadow-[0_0_80px_rgba(124,92,255,0.35)]">
+			<HeroScene />
+			<div class="relative z-10 flex h-full flex-col justify-between rounded-[1.35rem] bg-black/30 p-6 backdrop-blur-xl">
+				<div>
+					<p class="text-xs uppercase tracking-[0.3em] text-primary-soft/80">Animación 3D interactiva</p>
+					<h3 class="mt-3 text-2xl font-semibold text-white sm:text-3xl">Energía creativa en tiempo real</h3>
+					<p class="mt-2 max-w-sm text-sm text-neutral-300">
+						Estructuras dinámicas, partículas orbitando y luces que reaccionan para reflejar la forma en que diseño experiencias digitales vivas.
+					</p>
+				</div>
+				<span class="mt-6 inline-flex w-max items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/80">
+					Three.js · WebGL · Motion
+				</span>
+			</div>
+		</div>
+
 		<a
 			href={flagship.url}
 			target="_blank"
@@ -166,7 +182,7 @@
 </section>
 
 <section id="proyectos" class="space-y-8 py-16">
-	<div class="flex flex-col gap-4" style="--reveal-delay: 0.18s; --slide-y: 130px; --reveal-duration: 1.2s; --reveal-rotate: 2deg; --reveal-scale: 0.9" use:reveal={{ direction: 'up' }}>
+	<div class="flex flex-col gap-4" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Casos recientes</h2>
 		<p class="max-w-3xl text-neutral-300">
 			Construyo soluciones llave en mano: desde la historia que queremos contar hasta cada detalle visual.
@@ -176,7 +192,7 @@
 
 	<div class="grid gap-10">
 			{#each otherProjects as project, index}
-				<div style={`--reveal-delay: ${0.2 + index * 0.12}s; --reveal-duration: 1.18s; --slide-y: 140px; --reveal-rotate: 1.8deg; --reveal-scale: 0.92`}>
+				<div style={`--reveal-delay: ${0.24 + index * 0.12}s`}>
 					<ProjectCard {project} />
 				</div>
 			{/each}
@@ -187,7 +203,7 @@
 	{#each focusAreas as area, index}
 		<article
 			class="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow"
-			style={`--reveal-delay: ${0.2 + index * 0.1}s; --reveal-duration: 1.14s; --slide-y: 120px; --reveal-rotate: 1.8deg; --reveal-scale: 0.92`}
+			style={`--reveal-delay: ${0.24 + index * 0.08}s`}
 			use:reveal={{ direction: 'up' }}
 		>
 			<h3 class="text-2xl font-semibold text-white">{area.title}</h3>
@@ -205,7 +221,7 @@
 </section>
 
 <section class="space-y-10 py-16">
-		<div class="flex flex-col gap-3" style="--reveal-delay: 0.2s; --reveal-duration: 1.15s; --slide-y: 120px; --reveal-rotate: 1.6deg; --reveal-scale: 0.92" use:reveal={{ direction: 'up' }}>
+		<div class="flex flex-col gap-3" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Proceso sin fricción</h2>
 		<p class="max-w-3xl text-neutral-300">
 			Cada fase se construye con herramientas reales desde el día uno. Documentación viva, handoff inexistente y equipos alineados.
@@ -216,7 +232,7 @@
 			{#each process as item, index}
 				<div
 					class="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-black/30 p-6 backdrop-blur-xl"
-					style={`--reveal-delay: ${0.22 + index * 0.1}s; --reveal-duration: 1.15s; --slide-y: 120px; --reveal-rotate: 1.6deg; --reveal-scale: 0.92`}
+					style={`--reveal-delay: ${0.26 + index * 0.08}s`}
 					use:reveal={{ direction: 'up' }}
 				>
 				<h3 class="text-xl font-semibold text-white">{item.step}</h3>
@@ -231,7 +247,7 @@
 	<div class="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-glow-pulse" style="animation-delay: 0.8s"></div>
 
 	<div class="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-		<div class="max-w-2xl space-y-4" style="--reveal-delay: 0.22s; --slide-y: 140px; --reveal-duration: 1.2s; --reveal-rotate: 2deg; --reveal-scale: 0.9" use:reveal={{ direction: 'up' }}>
+		<div class="max-w-2xl space-y-4" style="--reveal-delay: 0.24s" use:reveal={{ direction: 'up' }}>
 			<h2 class="text-3xl font-semibold text-white sm:text-4xl">
 				Listo para darle vida a tu próximo proyecto.
 			</h2>
@@ -240,7 +256,7 @@
 			</p>
 		</div>
 
-		<ul class="relative z-10 flex flex-col gap-3 text-sm text-neutral-200" style="--reveal-delay: 0.28s; --slide-x: 200px; --reveal-duration: 1.18s; --reveal-rotate: -1.6deg; --reveal-scale: 0.92" use:reveal={{ direction: 'right' }}>
+		<ul class="relative z-10 flex flex-col gap-3 text-sm text-neutral-200" style="--reveal-delay: 0.3s" use:reveal={{ direction: 'right' }}>
 			{#each contactLinks as item}
 				<li class="flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.05] px-4 py-2 backdrop-blur-xl">
 					<span class="text-neutral-400">{item.label}</span>
