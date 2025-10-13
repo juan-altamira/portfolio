@@ -3,7 +3,7 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import SlideInPicture from '$lib/components/SlideInPicture.svelte';
 	import HeroScene from '$lib/components/HeroScene.svelte';
-	import SectionOrbits from '$lib/components/SectionOrbits.svelte';
+	import AuroraField from '$lib/components/AuroraField.svelte';
 	import { reveal } from '$lib/actions/reveal';
 
 	const flagship = projects.find((project) => project.highlight)!;
@@ -183,8 +183,8 @@
 </section>
 
 <section id="proyectos" class="relative space-y-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<SectionOrbits intensity={0.35} scale={1.1} />
-	<div class="relative flex flex-col gap-4 px-6 lg:px-10" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'up' }}>
+	<AuroraField colorA="#7c5cff" colorB="#58ffc5" ribbons={5} />
+	<div class="relative z-10 flex flex-col gap-4 px-6 lg:px-10" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Casos recientes</h2>
 		<p class="max-w-3xl text-neutral-300">
 			Construyo soluciones llave en mano: desde la historia que queremos contar hasta cada detalle visual.
@@ -192,7 +192,7 @@
 		</p>
 	</div>
 
-	<div class="relative grid gap-10 px-6 lg:px-10">
+	<div class="relative z-10 grid gap-10 px-6 lg:px-10">
 		{#each otherProjects as project, index}
 			<div style={`--reveal-delay: ${0.24 + index * 0.12}s`}>
 				<ProjectCard {project} />
@@ -202,7 +202,7 @@
 </section>
 
 <section class="relative grid gap-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16 lg:grid-cols-3">
-	<SectionOrbits intensity={0.28} scale={0.9} />
+	<AuroraField colorA="#58ffc5" colorB="#ffffff" ribbons={4} />
 	{#each focusAreas as area, index}
 		<article
 			class="relative z-10 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow"
@@ -224,15 +224,15 @@
 </section>
 
 <section class="relative space-y-10 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<SectionOrbits intensity={0.3} scale={1} />
-	<div class="relative flex flex-col gap-3 px-6 lg:px-10" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
+	<AuroraField colorA="#7c5cff" colorB="#ffffff" ribbons={6} />
+	<div class="relative z-10 flex flex-col gap-3 px-6 lg:px-10" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Proceso sin fricción</h2>
 		<p class="max-w-3xl text-neutral-300">
 			Cada fase se construye con herramientas reales desde el día uno. Documentación viva, handoff inexistente y equipos alineados.
 		</p>
 	</div>
 
-	<div class="relative grid gap-6 px-6 lg:grid-cols-3 lg:px-10">
+	<div class="relative z-10 grid gap-6 px-6 lg:grid-cols-3 lg:px-10">
 		{#each process as item, index}
 			<div
 				class="relative z-10 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-black/30 p-6 backdrop-blur-xl"
@@ -249,7 +249,7 @@
 <section class="relative overflow-hidden rounded-[2.5rem] border border-primary/40 bg-gradient-to-br from-primary/25 via-primary/15 to-transparent p-10">
 	<div class="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/30 blur-3xl animate-glow-pulse"></div>
 	<div class="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-glow-pulse" style="animation-delay: 0.8s"></div>
-	<SectionOrbits intensity={0.22} scale={0.85} />
+	<AuroraField colorA="#7c5cff" colorB="#58ffc5" ribbons={3} />
 
 	<div class="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 		<div class="max-w-2xl space-y-4" style="--reveal-delay: 0.24s" use:reveal={{ direction: 'up' }}>
