@@ -1009,6 +1009,7 @@ small,
 	
 	.hero-subheadline {
 		animation: none;
+		opacity: 1;
 	}
 	
 	.hero-subheadline::before {
