@@ -290,26 +290,12 @@ small,
 
 .hero-cta {
 	position: relative;
-	overflow: hidden;
+	box-shadow: 0 0 0 0 transparent;
+	transition: box-shadow 0.3s ease;
 }
 
-.hero-cta::before {
-	content: '';
-	position: absolute;
-	inset: -2px;
-	border-radius: inherit;
-	padding: 2px;
-	background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(52, 211, 153, 0.6), rgba(139, 92, 246, 0.6));
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	mask-composite: exclude;
-	opacity: 0;
-	transition: opacity 0.3s ease;
-}
-
-.hero-cta:hover::before {
-	opacity: 1;
+.hero-cta:hover {
+	box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
 }
 
 .hero-cta:hover,
@@ -319,26 +305,12 @@ small,
 
 .escribime-btn {
 	position: relative;
-	overflow: hidden;
+	box-shadow: 0 0 0 0 transparent;
+	transition: box-shadow 0.3s ease;
 }
 
-.escribime-btn::before {
-	content: '';
-	position: absolute;
-	inset: -2px;
-	border-radius: inherit;
-	padding: 2px;
-	background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(52, 211, 153, 0.6), rgba(139, 92, 246, 0.6));
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	mask-composite: exclude;
-	opacity: 0;
-	transition: opacity 0.3s ease;
-}
-
-.escribime-btn:hover::before {
-	opacity: 1;
+.escribime-btn:hover {
+	box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
 }
 
 .escribime-btn:hover,
