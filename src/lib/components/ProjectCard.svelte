@@ -23,7 +23,7 @@
 					dispatch('visible', { slug: project.slug, visible: isVisible });
 				});
 			},
-			{ threshold: 0.5 }
+			{ threshold: 0.4, rootMargin: '0px' }
 		);
 		observer.observe(wrapper);
 		return () => observer.disconnect();
@@ -52,7 +52,7 @@
 					<stop offset="100%" style="stop-color:rgba(139, 92, 246, 1);stop-opacity:1" />
 				</linearGradient>
 				<filter id="glow-{project.slug}">
-					<feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+					<feGaussianBlur stdDeviation="4" result="coloredBlur"/>
 					<feMerge>
 						<feMergeNode in="coloredBlur"/>
 						<feMergeNode in="SourceGraphic"/>

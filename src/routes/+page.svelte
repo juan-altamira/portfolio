@@ -3,7 +3,6 @@ import { onMount } from 'svelte';
 import { projects } from '$lib/data/projects';
 import ProjectCard from '$lib/components/ProjectCard.svelte';
 import SlideInPicture from '$lib/components/SlideInPicture.svelte';
-import ScrollGalaxy from '$lib/components/ScrollGalaxy.svelte';
 import { reveal, magnetic, ripple } from '$lib';
 
 	const stats = [
@@ -73,27 +72,38 @@ import { reveal, magnetic, ripple } from '$lib';
 
 	let haloX = 50;
 	let haloY = 50;
+	let rafId = 0;
+	let isMobile = false;
 
-const handleHeroPointer = (event: PointerEvent) => {
-	const target = event.currentTarget as HTMLElement;
-	const rect = target.getBoundingClientRect();
-	haloX = ((event.clientX - rect.left) / rect.width) * 100;
-	haloY = ((event.clientY - rect.top) / rect.height) * 100;
-};
-
-let activeProjectSlug = projects[0]?.slug ?? '';
-
-const handleProjectVisible = (event: CustomEvent<{ slug: string; visible: boolean }>) => {
-	if (event.detail.visible) {
-		activeProjectSlug = event.detail.slug;
+	function handleHeroPointer(event: PointerEvent) {
+		if (isMobile || rafId) return;
+		
+		rafId = requestAnimationFrame(() => {
+			const target = event.currentTarget as HTMLElement;
+			const rect = target.getBoundingClientRect();
+			haloX = ((event.clientX - rect.left) / rect.width) * 100;
+			haloY = ((event.clientY - rect.top) / rect.height) * 100;
+			rafId = 0;
+		});
 	}
-};
 
-let activeProcessIndex = 0;
-let processContainer: HTMLElement | null = null;
-let processProgress = process.length > 1 ? 0.05 : 1;
+	let activeProjectSlug = projects[0]?.slug ?? '';
+
+	function handleProjectVisible(event: CustomEvent<{ slug: string; visible: boolean }>) {
+		if (event.detail.visible) {
+			activeProjectSlug = event.detail.slug;
+		}
+	}
+
+	let activeProcessIndex = 0;
+	let processContainer: HTMLElement | null = null;
+	let processProgress = process.length > 1 ? 0.05 : 1;
 
 onMount(() => {
+	if (typeof window !== 'undefined') {
+		isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+	}
+	
 	if (typeof window === 'undefined') return;
 	const observer = new IntersectionObserver(
 		(entries) => {
@@ -105,7 +115,7 @@ onMount(() => {
 				}
 			});
 		},
-		{ threshold: 0.6 }
+		{ threshold: 0.5, rootMargin: '0px' }
 	);
 
 	const register = () => {
@@ -143,7 +153,7 @@ onMount(() => {
 		class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--halo-x)_var(--halo-y),rgba(139,92,246,0.18),transparent_46%)] transition-[background] duration-150"
 	></div>
 
-	<div class="relative z-10 mx-auto max-w-[960px] px-6 lg:px-10">
+	<div class="relative z-10 mx-auto max-w-[960px] px-5 sm:px-6 lg:px-10">
 		<div class="flex flex-col gap-10">
 			<div class="space-y-6" style="--reveal-delay: 0.05s" use:reveal={{ direction: 'up' }}>
 				<h1 class="tracking-in leading-[1.05]">
@@ -191,7 +201,6 @@ onMount(() => {
 </section>
 
 <section id="proyectos" class="relative space-y-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<ScrollGalaxy intensity={0.35} mode="structure" />
 	<div class="relative z-10 flex flex-col gap-4 px-6 lg:px-10" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-4xl font-semibold leading-[1.1] tracking-tight text-white">Casos recientes</h2>
 		<p class="max-w-3xl text-neutral-300">
@@ -231,7 +240,6 @@ onMount(() => {
 </section>
 
 <section id="foco" class="relative grid gap-8 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16 lg:grid-cols-3">
-	<ScrollGalaxy intensity={0.24} mode="structure" />
 	{#each focusAreas as area, index}
 		<article
 			class="focus-card group relative z-10 flex min-h-[240px] flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-primary/60 lg:p-8"
@@ -256,7 +264,6 @@ onMount(() => {
 </section>
 
 <section id="proceso" class="relative space-y-10 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
-	<ScrollGalaxy intensity={0.26} mode="structure" />
 	<div class="relative z-10 flex flex-col gap-3 px-6 lg:px-10" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
 		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Proceso sin fricción</h2>
 		<p class="max-w-3xl text-neutral-300">
@@ -288,7 +295,6 @@ onMount(() => {
 </section>
 
 <section class="relative overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-12">
-	<ScrollGalaxy intensity={0.22} mode="structure" />
 	<div class="relative z-10 px-6 lg:px-10">
 		<div class="mx-auto max-w-4xl text-center" style="--reveal-delay: 0.24s" use:reveal={{ direction: 'up' }}>
 			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-300 backdrop-blur-xl">
@@ -364,7 +370,6 @@ onMount(() => {
 >
 	<div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(139,92,246,0.18),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(52,211,153,0.12),transparent_50%)] opacity-70"></div>
 	<div class="cta-waves pointer-events-none absolute inset-0"></div>
-	<ScrollGalaxy intensity={0.18} mode="structure" />
 
 	<div class="relative z-10 grid gap-8 lg:grid-cols-[minmax(0,0.9fr),minmax(0,1.1fr)] lg:items-center">
 		<div class="flex items-start gap-4" style="--reveal-delay: 0.24s" use:reveal={{ direction: 'up' }}>

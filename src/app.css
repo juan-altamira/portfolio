@@ -24,6 +24,12 @@
 		background-repeat: no-repeat;
 	}
 
+	/* Performance optimizations */
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
 	h1,
 	h2,
 	h3,
@@ -33,9 +39,15 @@
 	}
 
 	h1 {
-		font-size: clamp(3.5rem, 6vw, 4.5rem);
+		font-size: clamp(2.25rem, 6vw, 4.5rem);
 		line-height: 1.05;
 		font-weight: 850;
+	}
+
+	@media (min-width: 640px) {
+		h1 {
+			font-size: clamp(3.5rem, 6vw, 4.5rem);
+		}
 	}
 
 	h2 {
@@ -91,9 +103,8 @@ small,
 	--slide-x: 0px;
 	--slide-y: 80px;
 	--reveal-delay: 0s;
-	--reveal-duration: 0.95s;
+	--reveal-duration: 0.75s;
 	transform: translate3d(var(--slide-x), var(--slide-y), 0);
-	will-change: opacity, transform;
 }
 
 .reveal[data-reveal-direction='left'] {
@@ -111,8 +122,13 @@ small,
 }
 
 .reveal.is-revealed {
+	will-change: opacity, transform;
 	animation: slide-in var(--reveal-duration) var(--ease-overshoot) forwards;
 	animation-delay: var(--reveal-delay);
+}
+
+.reveal.is-revealed:not(:animating) {
+	will-change: auto;
 }
 
 @keyframes slide-in {
@@ -199,6 +215,12 @@ small,
 	position: relative;
 }
 
+@media (max-width: 768px) {
+	.process-card {
+		backdrop-filter: blur(8px);
+	}
+}
+
 .process-card .process-marker {
 	position: absolute;
 	left: -18px;
@@ -250,6 +272,20 @@ small,
 .focus-card {
 	position: relative;
 	overflow: hidden;
+}
+
+@media (max-width: 768px) {
+	.focus-card {
+		backdrop-filter: blur(8px);
+	}
+	
+	.focus-card:hover {
+		transform: translateY(-1px) scale(1.01);
+	}
+	
+	.focus-card .focus-spotlight {
+		display: none;
+	}
 }
 
 .focus-card .focus-spotlight {
@@ -388,7 +424,9 @@ small,
 	border: 1px solid rgba(255, 255, 255, 0.08);
 	background: rgba(20, 21, 26, 0.6);
 	backdrop-filter: blur(12px);
-	transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+	transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+				border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+				box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
 	overflow: hidden;
 }
 
@@ -409,6 +447,7 @@ small,
 	stroke-dasharray: 150 1850;
 	stroke-dashoffset: 0;
 	animation: none;
+	will-change: stroke-dashoffset;
 }
 
 @media (min-width: 768px) {
@@ -420,6 +459,7 @@ small,
 }
 
 .pc:hover {
+	will-change: transform;
 	transform: scale(1.03);
 	border-color: rgba(139, 92, 246, 0.6);
 	box-shadow: 
@@ -431,12 +471,37 @@ small,
 	z-index: 10;
 }
 
+@media (max-width: 768px) {
+	.pc {
+		backdrop-filter: blur(8px);
+		min-height: 480px;
+	}
+	
+	.pc:hover {
+		transform: scale(1.015);
+		box-shadow: 
+			0 0 0 1px rgba(139, 92, 246, 0.4),
+			0 0 20px rgba(139, 92, 246, 0.2),
+			0 10px 40px rgba(0, 0, 0, 0.3);
+	}
+	
+	.pc:hover .pc__border-rect {
+		animation: none;
+	}
+}
+
 .pc:hover .pc__border-glow {
 	opacity: 1;
 }
 
 .pc:hover .pc__border-rect {
 	animation: dashTravel 3s linear infinite;
+}
+
+@media (hover: none) {
+	.pc:hover .pc__border-rect {
+		animation: none;
+	}
 }
 
 @keyframes dashTravel {
@@ -775,14 +840,25 @@ small,
 	position: absolute;
 	inset: -40%;
 	background: radial-gradient(circle, rgba(139, 92, 246, 0.08), transparent 60%);
-	animation: wave-drift 22s linear infinite;
-	opacity: 0.6;
+	animation: wave-drift 26s linear infinite;
+	opacity: 0.5;
 }
 
 .cta-waves::after {
 	background: radial-gradient(circle, rgba(52, 211, 153, 0.08), transparent 65%);
-	animation-duration: 28s;
+	animation-duration: 32s;
 	animation-direction: reverse;
+}
+
+@media (max-width: 768px) {
+	.cta-waves::before,
+	.cta-waves::after {
+		opacity: 0.3;
+		animation-duration: 36s;
+	}
+	.cta-waves::after {
+		animation-duration: 44s;
+	}
 }
 
 @keyframes wave-drift {
@@ -904,9 +980,29 @@ small,
 	.contact-input,
 	.insta-link,
 	.cta-waves::before,
-	.cta-waves::after {
+	.cta-waves::after,
+	.pc__border-rect {
 		transition: none;
 		animation: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.tracking-in {
+		animation-duration: 0.4s;
+	}
+	
+	.hero-subheadline {
+		animation-duration: 0.4s;
+	}
+	
+	.hero-subheadline::before {
+		animation-duration: 0.4s;
+	}
+	
+	/* Reduce hero background blur on mobile */
+	section#inicio .pointer-events-none[class*="blur"] {
+		filter: blur(80px) !important;
 	}
 }
 
