@@ -478,11 +478,16 @@ small,
 	}
 	
 	.pc:hover {
-		transform: scale(1.015);
-		box-shadow: 
-			0 0 0 1px rgba(139, 92, 246, 0.4),
-			0 0 20px rgba(139, 92, 246, 0.2),
-			0 10px 40px rgba(0, 0, 0, 0.3);
+		transform: none;
+		border-color: rgba(255, 255, 255, 0.08);
+		box-shadow: none;
+		background: rgba(20, 21, 26, 0.6);
+		z-index: auto;
+		will-change: auto;
+	}
+	
+	.pc:hover .pc__border-glow {
+		opacity: 0;
 	}
 	
 	.pc:hover .pc__border-rect {
