@@ -217,7 +217,8 @@ small,
 
 @media (max-width: 768px) {
 	.process-card {
-		backdrop-filter: blur(8px);
+		backdrop-filter: none;
+		background: rgba(20, 21, 26, 0.95);
 	}
 }
 
@@ -276,11 +277,12 @@ small,
 
 @media (max-width: 768px) {
 	.focus-card {
-		backdrop-filter: blur(8px);
+		backdrop-filter: none;
+		background: rgba(20, 21, 26, 0.95);
 	}
 	
 	.focus-card:hover {
-		transform: translateY(-1px) scale(1.01);
+		transform: none;
 	}
 	
 	.focus-card .focus-spotlight {
@@ -473,15 +475,17 @@ small,
 
 @media (max-width: 768px) {
 	.pc {
-		backdrop-filter: blur(8px);
+		backdrop-filter: none;
+		background: rgba(20, 21, 26, 0.95);
 		min-height: 480px;
+		transition: none;
 	}
 	
 	.pc:hover {
 		transform: none;
 		border-color: rgba(255, 255, 255, 0.08);
 		box-shadow: none;
-		background: rgba(20, 21, 26, 0.6);
+		background: rgba(20, 21, 26, 0.95);
 		z-index: auto;
 		will-change: auto;
 	}
@@ -492,6 +496,11 @@ small,
 	
 	.pc:hover .pc__border-rect {
 		animation: none;
+	}
+	
+	/* Desactivar transiciones en imágenes */
+	.pc img {
+		transition: none;
 	}
 }
 
@@ -858,11 +867,8 @@ small,
 @media (max-width: 768px) {
 	.cta-waves::before,
 	.cta-waves::after {
-		opacity: 0.3;
-		animation-duration: 36s;
-	}
-	.cta-waves::after {
-		animation-duration: 44s;
+		animation: none;
+		opacity: 0;
 	}
 }
 
@@ -993,21 +999,78 @@ small,
 }
 
 @media (max-width: 768px) {
+	/* Desactivar TODAS las animaciones excepto reveal */
 	.tracking-in {
-		animation-duration: 0.4s;
+		animation: none;
+		opacity: 1;
+		letter-spacing: -0.02em;
+		filter: none;
 	}
 	
 	.hero-subheadline {
-		animation-duration: 0.4s;
+		animation: none;
 	}
 	
 	.hero-subheadline::before {
-		animation-duration: 0.4s;
+		animation: none;
+		opacity: 0.6;
 	}
 	
 	/* Reduce hero background blur on mobile */
 	section#inicio .pointer-events-none[class*="blur"] {
 		filter: blur(80px) !important;
+	}
+	
+	/* Desactivar transiciones en focus-card */
+	.focus-card {
+		transition: none;
+	}
+	
+	.focus-card h3,
+	.focus-card p {
+		transition: none;
+	}
+	
+	/* Desactivar transiciones en process-card */
+	.process-card {
+		transition: none;
+	}
+	
+	.process-card h3,
+	.process-card p {
+		transition: none;
+	}
+	
+	.process-marker {
+		transition: none;
+	}
+	
+	/* Desactivar animaciones de waves */
+	.cta-waves::before,
+	.cta-waves::after {
+		animation: none;
+		opacity: 0;
+	}
+	
+	/* Desactivar avatar-glow */
+	.avatar-glow {
+		animation: none;
+	}
+	
+	/* Desactivar todas las transiciones de botones */
+	.contact-button,
+	.insta-link,
+	button,
+	a[class*="btn"] {
+		transition: none;
+	}
+	
+	/* Desactivar backdrop-filter animado */
+	.focus-card,
+	.process-card,
+	.pc {
+		backdrop-filter: none;
+		background: rgba(20, 21, 26, 0.95);
 	}
 }
 

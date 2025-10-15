@@ -5,9 +5,10 @@ interface RippleOptions {
 
 export function ripple(node: HTMLElement, options: RippleOptions = {}) {
 	const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
 	const handlePointerDown = (event: PointerEvent) => {
-		if (reduceMotion) return;
+		if (reduceMotion || isMobile) return;
 		// Prefer ripple for touch or primary pointer interactions
 		if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
 
