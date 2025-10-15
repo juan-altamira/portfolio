@@ -29,7 +29,7 @@ export const projects: Project[] = [
 		description:
 			'Colección de calculadoras fáciles de usar para asesores financieros, con resultados claros y descargables.',
 		url: 'https://calculadoras-drab.vercel.app/',
-		image: '/projects/calculadoras-drab.svg',
+		image: '/projects/calculadoras-drab.webp',
 		tags: ['Herramientas interactivas', 'Resultados descargables', 'Lenguaje simple'],
 		role: 'Diseño y desarrollo a medida',
 		kpi: '98% satisfacción'
