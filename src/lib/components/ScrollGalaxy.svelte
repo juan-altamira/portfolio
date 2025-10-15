@@ -34,9 +34,9 @@
 
 		const mainColor = new THREE.Color('#7c5cff');
 		const accentColor = new THREE.Color('#58ffc5');
+		const opacityScale = 0.55;
 
 		const loops: THREE.Object3D[] = [];
-		const struts: THREE.Mesh[] = [];
 		const nodes: THREE.Mesh[] = [];
 		const particleSystems: THREE.Points[] = [];
 
@@ -45,7 +45,7 @@
 			const mat = new THREE.MeshBasicMaterial({
 				color: mainColor.clone().lerp(accentColor, Math.random() * 0.6),
 				transparent: true,
-				opacity
+				opacity: opacity * opacityScale
 			});
 			const mesh = new THREE.Mesh(geo, mat);
 			mesh.rotation.x = Math.PI / 2;
@@ -54,32 +54,16 @@
 			loops.push(mesh);
 		};
 
-		const addStrut = (angle: number) => {
-			const length = 4.8;
-			const geo = new THREE.CylinderGeometry(0.03, 0.03, length, 12, 1, true);
-			const mat = new THREE.MeshBasicMaterial({
-				color: '#ffffff',
-				transparent: true,
-				opacity: 0.2 * intensity
-			});
-			const mesh = new THREE.Mesh(geo, mat);
-			mesh.rotation.z = Math.PI / 2;
-			mesh.position.x = Math.cos(angle) * 1.35;
-			mesh.position.z = Math.sin(angle) * 1.35;
-			mesh.position.y = 0;
-			mesh.lookAt(0, 0, 0);
-			galaxy.add(mesh);
-			struts.push(mesh);
-		};
-
 		const addNode = (position: THREE.Vector3) => {
 			const geo = new THREE.SphereGeometry(0.12 + 0.04 * intensity, 24, 24);
 			const mat = new THREE.MeshStandardMaterial({
 				color: accentColor.clone().lerp(mainColor, Math.random()),
-				metalness: 0.4,
-				roughness: 0.3,
+				transparent: true,
+				opacity: 0.75,
+				metalness: 0.35,
+				roughness: 0.4,
 				emissive: '#1a123b',
-				emissiveIntensity: 0.6
+				emissiveIntensity: 0.45
 			});
 			const mesh = new THREE.Mesh(geo, mat);
 			mesh.position.copy(position);
@@ -104,7 +88,7 @@
 				color,
 				size: 0.05,
 				transparent: true,
-				opacity: 0.5
+				opacity: 0.3
 			});
 			const points = new THREE.Points(geometry, material);
 			points.userData = { basePositions: data };
@@ -116,11 +100,6 @@
 		addLoop(2.5, 0.06, 0.4 * intensity);
 		addLoop(2.95, 0.05, 0.32 * intensity, 0.15);
 		addLoop(3.35, 0.045, 0.25 * intensity, -0.12);
-
-		// Struts and nodes
-		for (let i = 0; i < 4; i++) {
-			addStrut((i / 4) * Math.PI * 2);
-		}
 
 		const nodePositions = [
 			new THREE.Vector3(0, 0.9, 0),
@@ -140,7 +119,7 @@
 		const gridMaterial = new THREE.MeshBasicMaterial({
 			color: '#ffffff',
 			transparent: true,
-			opacity: 0.05,
+			opacity: 0.025,
 			wireframe: true
 		});
 		const grid = new THREE.Mesh(gridGeometry, gridMaterial);
@@ -148,7 +127,7 @@
 		grid.position.y = -1.2;
 		galaxy.add(grid);
 
-		const light = new THREE.PointLight('#ffffff', 1.4, 25);
+		const light = new THREE.PointLight('#ffffff', 1.1, 25);
 		scene.add(light);
 
 		const updateScrollTarget = () => {
@@ -177,11 +156,6 @@
 				loop.scale.setScalar(1 + Math.sin(elapsed * 0.6 + index) * 0.03 * intensity);
 			});
 
-			struts.forEach((strut, index) => {
-			const mat = strut.material as THREE.MeshBasicMaterial;
-			mat.opacity = 0.18 + Math.sin(elapsed * 0.8 + index) * 0.04 * intensity;
-			});
-
 			nodes.forEach((node, index) => {
 				node.position.y += Math.sin(elapsed * 0.8 + index) * 0.004;
 				node.rotation.y += 0.01;
@@ -202,7 +176,7 @@
 			}
 
 			grid.rotation.z = elapsed * 0.05;
-			grid.material.opacity = 0.05 + Math.sin(elapsed * 0.4) * 0.015;
+			grid.material.opacity = 0.025 + Math.sin(elapsed * 0.4) * 0.008;
 
 			light.position.x = Math.sin(elapsed * 0.6) * 4;
 			light.position.y = Math.cos(elapsed * 0.5) * 3;
@@ -258,7 +232,7 @@
 		position: absolute;
 		inset: 0;
 		z-index: 0;
-		opacity: 0.9;
+		opacity: 0.65;
 		mix-blend-mode: screen;
 		pointer-events: none;
 	}

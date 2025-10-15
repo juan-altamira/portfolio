@@ -92,94 +92,53 @@
 	/>
 </svelte:head>
 
-<section class="grid gap-10 pb-16 pt-8 lg:grid-cols-[minmax(0,1.2fr),minmax(0,0.8fr)] lg:items-center lg:gap-20">
-	<div class="flex flex-col gap-8" style="--reveal-delay: 0.05s" use:reveal={{ direction: 'up' }}>
-		<div class="space-y-5">
-			<span class="inline-flex max-w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-				Trabajo uno a uno con marcas que quieren brillar online
-			</span>
-			<h1 class="max-w-3xl text-4xl font-semibold leading-[1.1] text-white text-balance sm:text-[2.9rem] lg:text-[3.4rem]">
-				Creo sitios y experiencias digitales que cautivan, cuentan tu historia y convierten visitas en clientes.
-			</h1>
-			<p class="max-w-3xl text-base text-neutral-300 sm:text-lg">
-				Soy Juan Pablo Altamira, programador freelance. Transformo tus ideas en una web cálida, rápida y lista para vender, trabajando directamente con vos y hablando en el mismo idioma.
-			</p>
-		</div>
+<section class="relative overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] pb-16 pt-8">
+	<ScrollGalaxy intensity={0.32} depth={7} mode="structure" />
+	<div class="relative z-10 mx-auto flex max-w-5xl flex-col gap-8 px-6 lg:px-10">
+		<div class="flex flex-col gap-8" style="--reveal-delay: 0.05s" use:reveal={{ direction: 'up' }}>
+			<div class="space-y-5">
+				<span class="inline-flex max-w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+					Trabajo uno a uno con marcas que quieren brillar online
+				</span>
+				<h1 class="max-w-4xl text-4xl font-semibold leading-[1.1] text-white text-balance sm:text-[2.9rem] lg:text-[3.4rem]">
+					Creo sitios y experiencias digitales que cautivan, cuentan tu historia y convierten visitas en clientes.
+				</h1>
+				<p class="max-w-3xl text-base text-neutral-300 sm:text-lg">
+					Soy Juan Pablo Altamira, programador freelance. Transformo tus ideas en una web cálida, rápida y lista para vender, trabajando directamente con vos y hablando en el mismo idioma.
+				</p>
+			</div>
 
 			<div class="flex flex-wrap gap-4" style="--reveal-delay: 0.18s" use:reveal={{ direction: 'right' }}>
-			<a
-				href="mailto:juanpabloaltamira@protonmail.com"
-				class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/50"
-			>
-				Contame sobre tu proyecto
-				<span aria-hidden="true">↗</span>
-			</a>
-
-			<a
-				href="#proyectos"
-				class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:border-primary hover:text-primary"
-			>
-				Ver proyectos destacados
-			</a>
-		</div>
-
-	<div class="grid gap-4 sm:grid-cols-3">
-			{#each stats as stat, index}
-				<div
-					class="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl"
-					style={`--reveal-delay: ${0.26 + index * 0.08}s`}
-					use:reveal={{ direction: 'up' }}
+				<a
+					href="mailto:juanpabloaltamira@protonmail.com"
+					class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/50"
 				>
-					<p class="text-xs uppercase tracking-wide text-neutral-400">{stat.label}</p>
-					<p class="mt-2 text-2xl font-semibold text-white">{stat.value}</p>
-					<p class="mt-1 text-xs text-neutral-400">{stat.description}</p>
-				</div>
-			{/each}
-		</div>
-	</div>
+					Contame sobre tu proyecto
+					<span aria-hidden="true">↗</span>
+				</a>
 
-	<div class="relative flex flex-col gap-6" style="--reveal-delay: 0.2s" use:reveal={{ direction: 'right' }}>
-		<div class="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-primary/25 via-primary/15 to-transparent p-2 shadow-[0_0_90px_rgba(124,92,255,0.4)]">
-			<ScrollGalaxy intensity={0.75} depth={6.5} mode="structure" />
-			<div class="relative z-10 flex h-full flex-col justify-between rounded-[1.35rem] bg-black/30 p-6 backdrop-blur-xl">
-				<div>
-					<p class="text-xs uppercase tracking-[0.3em] text-primary-soft/80">Se mueve con tu scroll</p>
-					<h3 class="mt-3 text-2xl font-semibold text-white sm:text-3xl">
-						Galaxia creativa que responde a cada desplazamiento
-					</h3>
-					<p class="mt-2 max-w-sm text-sm text-neutral-300">
-						El campo de partículas rota, respira y cambia de perspectiva según vas avanzando la página, enfatizando cómo cada proyecto evoluciona junto a tus clientes.
-					</p>
-				</div>
-				<span class="mt-6 inline-flex w-max items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/80">
-					Scroll reactive · Three.js
-				</span>
+				<a
+					href="#proyectos"
+					class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:border-primary hover:text-primary"
+				>
+					Ver proyectos destacados
+				</a>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-3">
+				{#each stats as stat, index}
+					<div
+						class="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl"
+						style={`--reveal-delay: ${0.26 + index * 0.08}s`}
+						use:reveal={{ direction: 'up' }}
+					>
+						<p class="text-xs uppercase tracking-wide text-neutral-400">{stat.label}</p>
+						<p class="mt-2 text-2xl font-semibold text-white">{stat.value}</p>
+						<p class="mt-1 text-xs text-neutral-400">{stat.description}</p>
+					</div>
+				{/each}
 			</div>
 		</div>
-
-		<a
-			href={flagship.url}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-		>
-			<SlideInPicture
-				src={flagship.image}
-				alt={`Visual del proyecto ${flagship.title}`}
-				direction="right"
-				aspectRatio="3/2"
-			/>
-			<div class="mt-6 space-y-2 rounded-3xl border border-white/10 bg-white/[0.05] p-5 text-sm text-neutral-300 shadow-lg shadow-black/40 transition duration-300 group-hover:border-primary/60 group-hover:bg-white/[0.08] group-hover:text-white">
-				<p class="font-medium text-white">
-					{flagship.title} — {flagship.description}
-				</p>
-				<ul class="flex flex-wrap gap-2 text-xs text-neutral-400 group-hover:text-neutral-200">
-					{#each flagship.tags as tag}
-						<li class="rounded-full bg-white/5 px-3 py-1 group-hover:bg-primary/20 group-hover:text-white">{tag}</li>
-					{/each}
-				</ul>
-			</div>
-		</a>
 	</div>
 </section>
 
@@ -194,8 +153,63 @@
 	</div>
 
 	<div class="relative z-10 grid gap-10 px-6 lg:px-10">
+	<div
+			class="group relative overflow-hidden rounded-[2rem] border border-primary/40 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent p-[1px] shadow-[0_0_120px_rgba(124,92,255,0.35)] transform transition duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/70 hover:shadow-[0_0_150px_rgba(124,92,255,0.5)]"
+			style="--reveal-delay: 0.22s"
+			use:reveal={{ direction: 'up' }}
+		>
+			<div class="relative grid gap-8 rounded-[1.9rem] bg-black/60 p-6 backdrop-blur-2xl transform transition duration-500 group-hover:scale-[1.01] group-hover:bg-black/55 group-hover:backdrop-blur-[28px] lg:grid-cols-[minmax(0,0.95fr),minmax(0,1.05fr)] lg:p-10">
+				<div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 transition duration-500 group-hover:border-primary/60">
+					<SlideInPicture
+						src={flagship.image}
+						alt={`Visual destacado del proyecto ${flagship.title}`}
+						direction="left"
+						aspectRatio="4/3"
+						imgClass="object-cover rounded-[1.4rem]"
+					/>
+				</div>
+
+				<div class="flex flex-col justify-between gap-6 lg:gap-8">
+					<div class="space-y-4">
+						<span class="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+							Proyecto insignia
+						</span>
+						<div class="space-y-3">
+							<h3 class="text-3xl font-semibold text-white sm:text-[2.2rem]">{flagship.title}</h3>
+							<p class="text-sm text-neutral-200 sm:text-base">
+								{flagship.description}
+							</p>
+						</div>
+					</div>
+
+					<div class="flex flex-wrap gap-2">
+						{#each flagship.tags as tag}
+							<span class="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-neutral-200">
+								{tag}
+							</span>
+						{/each}
+					</div>
+
+					<div class="flex flex-wrap items-center gap-4">
+						<a
+							href={flagship.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+						>
+							Ver Nutri Track en vivo
+							<span aria-hidden="true">↗</span>
+						</a>
+						<span class="text-xs uppercase tracking-[0.35em] text-neutral-400">
+							{flagship.role}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		{#each otherProjects as project, index}
-			<div style={`--reveal-delay: ${0.24 + index * 0.12}s`}>
+			<div style={`--reveal-delay: ${0.32 + index * 0.12}s`}>
 				<ProjectCard {project} />
 			</div>
 		{/each}
