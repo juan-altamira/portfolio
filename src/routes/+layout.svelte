@@ -31,11 +31,13 @@ import { ripple } from '$lib';
 				<a href="#contacto" class="nav-link">Contacto</a>
 			</div>
 			<a
-				href="#contacto"
+				href="https://wa.me/+543425048209"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:border-primary hover:text-primary"
 				use:ripple={{ color: 'rgba(139,92,246,0.25)', duration: 360 }}
 			>
-				Agendar 15’
+				Escribime
 			</a>
 		</div>
 	</nav>

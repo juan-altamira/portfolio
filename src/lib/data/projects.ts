@@ -24,17 +24,6 @@ export const projects: Project[] = [
 		kpi: '+38% leads'
 	},
 	{
-		slug: 'restaurante-cabrera',
-		title: 'Restaurante Cabrera',
-		description:
-			'Sitio envolvente con reservas online, menú siempre actualizado y mensajes de confirmación automáticos.',
-		url: 'https://restaurante-cabrera.vercel.app/',
-		image: '/projects/restaurante-cabrera.svg',
-		tags: ['Reservas en línea', 'Storytelling visual', 'Menú autogestionable'],
-		role: 'Diseño y desarrollo web',
-		kpi: '+24% reservas'
-	},
-	{
 		slug: 'calculadoras-drab',
 		title: 'Calculadoras DRAB',
 		description:
@@ -88,5 +77,16 @@ export const projects: Project[] = [
 		tags: ['Ventas online', 'Suscripciones', 'Recetas dinámicas'],
 		role: 'Diseño y desarrollo ecommerce',
 		kpi: '+32% AOV'
+	},
+	{
+		slug: 'restaurante-cabrera',
+		title: 'Restaurante Cabrera',
+		description:
+			'Sitio envolvente con reservas online, menú siempre actualizado y mensajes de confirmación automáticos.',
+		url: 'https://restaurante-cabrera.vercel.app/',
+		image: '/projects/restaurante-cabrera.svg',
+		tags: ['Reservas en línea', 'Storytelling visual', 'Menú autogestionable'],
+		role: 'Diseño y desarrollo web',
+		kpi: '+24% reservas'
 	}
 ];
