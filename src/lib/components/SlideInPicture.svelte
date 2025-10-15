@@ -4,7 +4,7 @@
 	export let src: string;
 	export let alt: string;
 	export let direction: RevealDirection = 'up';
-	export let aspectRatio: string | null = null;
+	export let aspectRatio: string | null = '16/9';
 	export let imgClass = 'object-cover';
 
 	const style = aspectRatio ? `aspect-ratio: ${aspectRatio};` : undefined;

@@ -226,14 +226,3 @@
 </script>
 
 <div class="scroll-galaxy" bind:this={container} aria-hidden="true"></div>
-
-<style>
-	.scroll-galaxy {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		opacity: 0.65;
-		mix-blend-mode: screen;
-		pointer-events: none;
-	}
-</style>

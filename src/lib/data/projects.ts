@@ -7,6 +7,7 @@ export interface Project {
 	tags: string[];
 	role: string;
 	highlight?: boolean;
+	kpi?: string;
 }
 
 export const projects: Project[] = [
@@ -19,7 +20,8 @@ export const projects: Project[] = [
 		image: '/projects/nutri-track.svg',
 		tags: ['Gestión de pacientes', 'Planes editables', 'Indicadores claros'],
 		role: 'Diseño y desarrollo integral',
-		highlight: true
+		highlight: true,
+		kpi: '+38% leads'
 	},
 	{
 		slug: 'restaurante-cabrera',
@@ -29,7 +31,8 @@ export const projects: Project[] = [
 		url: 'https://restaurante-cabrera.vercel.app/',
 		image: '/projects/restaurante-cabrera.svg',
 		tags: ['Reservas en línea', 'Storytelling visual', 'Menú autogestionable'],
-		role: 'Diseño y desarrollo web'
+		role: 'Diseño y desarrollo web',
+		kpi: '+24% reservas'
 	},
 	{
 		slug: 'calculadoras-drab',
@@ -39,7 +42,8 @@ export const projects: Project[] = [
 		url: 'https://calculadoras-drab.vercel.app/',
 		image: '/projects/calculadoras-drab.svg',
 		tags: ['Herramientas interactivas', 'Resultados descargables', 'Lenguaje simple'],
-		role: 'Diseño y desarrollo a medida'
+		role: 'Diseño y desarrollo a medida',
+		kpi: '98% satisfacción'
 	},
 	{
 		slug: 'estadisticas-defi',
@@ -49,7 +53,8 @@ export const projects: Project[] = [
 		url: 'https://estadisticas-defi.vercel.app/',
 		image: '/projects/estadisticas-defi.svg',
 		tags: ['Datos en vivo', 'Alertas automáticas', 'Informe visual'],
-		role: 'Diseño y desarrollo frontend'
+		role: 'Diseño y desarrollo frontend',
+		kpi: '-1.3s LCP'
 	},
 	{
 		slug: 'app-de-entrenamiento',
@@ -59,7 +64,8 @@ export const projects: Project[] = [
 		url: 'https://app-de-entrenamiento.vercel.app/',
 		image: '/projects/app-de-entrenamiento.svg',
 		tags: ['Planes flexibles', 'Seguimiento visual', 'Agenda online'],
-		role: 'Dirección creativa y desarrollo'
+		role: 'Dirección creativa y desarrollo',
+		kpi: '+41% retención'
 	},
 	{
 		slug: 'seminario-guadalupe',
@@ -69,7 +75,8 @@ export const projects: Project[] = [
 		url: 'https://seminario-guadalupe.vercel.app/',
 		image: '/projects/seminario-guadalupe.svg',
 		tags: ['Agenda pública', 'Inscripciones online', 'Streaming integrado'],
-		role: 'Diseño de experiencia y desarrollo'
+		role: 'Diseño de experiencia y desarrollo',
+		kpi: '3.2x asistencia'
 	},
 	{
 		slug: 'dietetica-salvia',
@@ -79,6 +86,7 @@ export const projects: Project[] = [
 		url: 'https://dietetica-salvia.vercel.app/',
 		image: '/projects/dietetica-salvia.svg',
 		tags: ['Ventas online', 'Suscripciones', 'Recetas dinámicas'],
-		role: 'Diseño y desarrollo ecommerce'
+		role: 'Diseño y desarrollo ecommerce',
+		kpi: '+32% AOV'
 	}
 ];
