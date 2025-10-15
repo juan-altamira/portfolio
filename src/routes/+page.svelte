@@ -18,7 +18,7 @@ import { reveal, magnetic, ripple } from '$lib';
 		},
 		{
 			label: 'Proyectos recientes',
-			value: '7 publicados',
+			value: 'Ultimos 7 publicados',
 			description: 'Últimos sitios y apps en producción.'
 		}
 	];
