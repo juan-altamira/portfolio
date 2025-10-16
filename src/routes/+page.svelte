@@ -328,7 +328,7 @@ onMount(() => {
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<img src="/crypto/musd.png" alt="MUSD" class="h-8 w-8" />
+				<img src="/crypto/musd.svg" alt="MUSD" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">MUSD</span>
 			</div>
 			
