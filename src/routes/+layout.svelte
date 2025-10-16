@@ -23,7 +23,7 @@ import { ripple } from '$lib';
 
 	<nav class="site-nav sticky top-0 z-40 w-full border-b border-white/5 bg-canvas/80 backdrop-blur-xl">
 		<div class="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-6 py-4 text-sm text-text-muted lg:px-10">
-			<a href="#inicio" class="font-semibold tracking-[0.25em] text-xs uppercase text-text-secondary">Juan Pablo Altamira</a>
+			<a href="#inicio" class="font-semibold tracking-[0.25em] text-xs uppercase text-text-secondary">Juan Altamira</a>
 			<div class="hidden items-center gap-6 md:flex">
 				<a href="#proyectos" class="nav-link">Casos</a>
 				<a href="#foco" class="nav-link">Valor</a>
