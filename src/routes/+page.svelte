@@ -265,7 +265,7 @@ onMount(() => {
 
 <section id="proceso" class="relative space-y-10 overflow-hidden rounded-[2rem] border border-white/5 bg-white/[0.02] py-16">
 	<div class="relative z-10 flex flex-col gap-3 px-6 lg:px-10" style="--reveal-delay: 0.22s" use:reveal={{ direction: 'up' }}>
-		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Proceso sin fricción</h2>
+		<h2 class="text-3xl font-semibold text-white sm:text-4xl">Asi trabajo con vos:</h2>
 		<p class="max-w-3xl text-neutral-300">
 			Cada paso es claro, con entregas visibles y decisiones simples.
 		</p>
@@ -313,51 +313,37 @@ onMount(() => {
 	
 		<div class="mt-8 flex flex-wrap items-center justify-center gap-4" style="--reveal-delay: 0.3s" use:reveal={{ direction: 'up' }}>
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-xs font-bold text-white">
-					₮
-				</div>
+				<img src="/crypto/usdt.svg" alt="USDT" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">USDT</span>
 				</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-xs font-bold text-white">
-				$
-				</div>
+				<img src="/crypto/usdc.svg" alt="USDC" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">USDC</span>
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 text-xs font-bold text-white">
-				◈
-				</div>
+				<img src="/crypto/dai.svg" alt="DAI" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">DAI</span>
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 text-xs font-bold text-white">
-				M
-				</div>
+				<img src="/crypto/musd.png" alt="MUSD" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">MUSD</span>
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-green-600 to-emerald-600 text-xs font-bold text-white">
-				Ƀ
-				</div>
+				<img src="/crypto/bch.svg" alt="BCH" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">BCH</span>
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-600 to-red-600 text-xs font-bold text-white">
-				ɱ
-				</div>
+				<img src="/crypto/xmr.svg" alt="XMR" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">XMR</span>
 			</div>
 			
 			<div class="crypto-badge group relative flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-primary/20">
-				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 text-xs font-bold text-white">
-				⬡
-				</div>
+				<img src="/crypto/pol.svg" alt="POL" class="h-8 w-8" />
 				<span class="text-sm font-semibold text-white">POL</span>
 			</div>
 		</div>
@@ -377,7 +363,7 @@ onMount(() => {
 				JP
 			</div>
 			<div class="space-y-2">
-				<p class="text-sm uppercase tracking-[0.28em] text-primary-soft">Juan Pablo Altamira</p>
+				<p class="text-sm uppercase tracking-[0.28em] text-primary-soft">Juan Altamira</p>
 				<h2 class="text-3xl font-semibold text-white sm:text-4xl">Diagnóstico sin costo en 15&nbsp;min</h2>
 				<p class="text-sm text-text-muted">
 					Definimos alcance, impacto esperado y próximos pasos concretos. Respondo en menos de 24 horas.
